@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: web-service-monitor
+  namespace: frontend
+spec:
+  selector:
+    matchLabels:
+      app: web
+  endpoints:
+  - port: metrics
+    path: /metrics
+  targetLabels:
+    - planB
